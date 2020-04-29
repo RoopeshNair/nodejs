@@ -4,6 +4,8 @@ LABEL maintainer="Azure App Services Container Images <appsvc-images@microsoft.c
 # Create app directory
 WORKDIR /app
 
+COPY package*.json ./
+
 RUN npm install
 RUN npm run build --if-present
 RUN npm run test --if-present
