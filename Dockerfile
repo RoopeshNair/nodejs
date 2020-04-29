@@ -4,6 +4,10 @@ LABEL maintainer="Azure App Services Container Images <appsvc-images@microsoft.c
 # Create app directory
 WORKDIR /app
 
+RUN npm install
+RUN npm run build --if-present
+RUN npm run test --if-present
+
 # Bundle app source
 COPY . .
 
